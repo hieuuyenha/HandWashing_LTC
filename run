@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -ex
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+
+cd ..
+
+python -u code/main.py -l preprocess
+
+python -u code/main.py -l layer1 --train false --test false
+
+python -u code/main.py -l layer2 --train false --test true
